@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.insa.recettes.vues.Inventaire">
+    <center>
+        <TableView fx:id="ingredientsTableView">
+            <columns>
+                <TableColumn fx:id="nomColumn" text="Nom" />
+                <TableColumn fx:id="quantiteColumn" text="Quantité" />
+                <TableColumn fx:id="uniteColumn" text="Unité" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Ajouter" onAction="#ajouterIngredient" />
+            <Button text="Modifier" onAction="#modifierIngredient" />
+            <Button text="Supprimer" onAction="#supprimerIngredient" />
+            <Button text="Retour à l'accueil" onAction="#retourAccueil" />
+        </HBox>
+    </bottom>
+</BorderPane>

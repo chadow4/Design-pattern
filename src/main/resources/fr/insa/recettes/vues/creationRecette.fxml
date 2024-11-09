@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.insa.recettes.vues.CreationRecette">
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <!-- Recipe Information -->
+            <GridPane hgap="10" vgap="10">
+                <Label text="Nom de la recette:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <TextField fx:id="nomRecetteField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                <Label text="Catégorie:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <TextField fx:id="categorieField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                <Label text="Instructions:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <TextArea fx:id="instructionsArea" prefRowCount="4" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                <Label text="Temps de préparation (min):" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <TextField fx:id="tempsPreparationField" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                <Label text="Temps de cuisson (min):" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                <TextField fx:id="tempsCuissonField" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+
+                <Label text="Niveau de difficulté:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                <ComboBox fx:id="niveauDifficulteCombo" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+            </GridPane>
+
+            <!-- Ingredient Management -->
+            <Label text="Ingrédients:" />
+            <HBox spacing="10">
+                <ComboBox fx:id="ingredientComboBox" promptText="Sélectionner un ingrédient" prefWidth="200" />
+                <TextField fx:id="ingredientQuantiteField" promptText="Quantité" />
+                <Button text="Ajouter" onAction="#ajouterIngredient" />
+            </HBox>
+            <ListView fx:id="ingredientsListView" prefHeight="100" />
+            <Button text="Supprimer l'ingrédient sélectionné" onAction="#supprimerIngredient" />
+
+            <!-- Action Buttons -->
+            <Button text="Ajouter la recette" onAction="#ajouterRecette" />
+        </VBox>
+    </center>
+    <bottom>
+        <Button text="Retour à l'accueil" onAction="#retourAccueil" />
+    </bottom>
+</BorderPane>

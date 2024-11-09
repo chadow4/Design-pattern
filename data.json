@@ -1,0 +1,15 @@
+{
+  "inventaire": [
+    {
+      "nom": "Tomate",
+      "quantite": 35.0,
+      "unite": "KG"
+    },
+    {
+      "nom": "Oeuf",
+      "quantite": 18.0,
+      "unite": "unité"
+    }
+  ],
+  "recettes": []
+}
