@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -36,16 +35,10 @@ public class Inventaire implements VueInteractive, EcouteurOrdre {
     private Controleur controleur;
 
     public static Inventaire creer(GestionnaireVue g) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Inventaire.class.getResource("inventaire.fxml"));
-        BorderPane root = loader.load();
-        Inventaire vue = loader.getController();
-        g.ajouterVueInteractive(vue);
-        g.ajouterEcouteurOrdre(vue);
-        vue.initialiserScene(root);
-        return vue;
+        return VueFactory.creerVue("inventaire.fxml", g);
     }
 
-    private void initialiserScene(BorderPane root) {
+    public void initialiserScene(BorderPane root) {
         this.scene = new Scene(root);
         ingredientsObservableList = FXCollections.observableArrayList();
         ingredientsTableView.setItems(ingredientsObservableList);

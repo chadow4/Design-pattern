@@ -7,14 +7,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ListeRecettes implements VueInteractive, EcouteurOrdre {
 
@@ -44,16 +42,10 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
     private List<Recette> recettesAffichees;
 
     public static ListeRecettes creer(GestionnaireVue g) throws IOException {
-        FXMLLoader loader = new FXMLLoader(ListeRecettes.class.getResource("listeRecettes.fxml"));
-        BorderPane root = loader.load();
-        ListeRecettes vue = loader.getController();
-        g.ajouterVueInteractive(vue);
-        g.ajouterEcouteurOrdre(vue);
-        vue.initialiserScene(root);
-        return vue;
+        return VueFactory.creerVue("listeRecettes.fxml", g);
     }
 
-    private void initialiserScene(BorderPane root) {
+    public void initialiserScene(BorderPane root) {
         this.scene = new Scene(root);
         recettesObservableList = FXCollections.observableArrayList();
         recettesListView.setItems(recettesObservableList);
