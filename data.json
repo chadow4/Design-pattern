@@ -53,6 +53,9 @@
           "unite": "unité"
         }
       ],
+      "instructions": "q",
+      "tempsPreparation": 1,
+      "tempsCuisson": 1,
       "instructions": "Va te faire cuire un oeuf aux épices",
       "tempsPreparation": 5,
       "tempsCuisson": 5,
