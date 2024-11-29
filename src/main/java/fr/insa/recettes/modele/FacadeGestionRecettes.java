@@ -18,7 +18,7 @@ public interface FacadeGestionRecettes {
 
     void modifierRecette(Recette recette) throws RecetteIntrouvableException, SauvegardeException;
 
-    void supprimerRecette(String nom) throws RecetteIntrouvableException, SauvegardeException;
+    void supprimerRecette(int id) throws RecetteIntrouvableException, SauvegardeException;
 
     List<Recette> getRecettes();
 

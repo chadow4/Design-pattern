@@ -107,8 +107,8 @@ public class FacadeGestionRecettesImpl implements FacadeGestionRecettes {
     }
 
     @Override
-    public void supprimerRecette(String nom) throws RecetteIntrouvableException, SauvegardeException {
-        boolean removed = recettes.removeIf(r -> r.getNom().equalsIgnoreCase(nom));
+    public void supprimerRecette(int id) throws RecetteIntrouvableException, SauvegardeException {
+        boolean removed = recettes.removeIf(r -> r.getId() == id);
         if (!removed) {
             throw new RecetteIntrouvableException("Recette introuvable.");
         }

@@ -230,7 +230,7 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
             alert.setTitle("Confirmation de suppression");
             alert.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.YES) {
-                    controleur.supprimerRecette(recette.getNom());
+                    controleur.supprimerRecette(recette.getId());
                 }
             });
         } else {

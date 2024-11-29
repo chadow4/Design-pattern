@@ -149,7 +149,7 @@ public class RecetteDialog extends Dialog<Recette> {
                     boolean isBio = bioCheck.isSelected();
                     boolean isEpice = epiceCheck.isSelected();
                     
-                    if (nomRecette.isEmpty() || categorie.isEmpty() || instructions.isEmpty() || niveauDifficulte == null || ingredientsRecette.isEmpty()) {
+                    if (categorie == null || nomRecette.isEmpty() || categorie.isEmpty() || instructions.isEmpty() || niveauDifficulte == null || ingredientsRecette.isEmpty()) {
                         Alert alert = new Alert(Alert.AlertType.ERROR, "Veuillez remplir tous les champs et ajouter au moins un ingrédient.", ButtonType.OK);
                         alert.showAndWait();
                         return null;
@@ -161,6 +161,10 @@ public class RecetteDialog extends Dialog<Recette> {
                         recette.setTempsPreparation(tempsPreparation);
                         recette.setTempsCuisson(tempsCuisson);
                         recette.setNiveauDifficulte(niveauDifficulte);
+                        recette.setIsVegetarien(isVegetarien);
+                        recette.setIsSansGluten(isSansGluten);
+                        recette.setIsBio(isBio);
+                        recette.setIsPasCher(isEpice);
                         return recette;
                     }else{
                         return new Recette(nomRecette, categorie, ingredientsRecette, instructions, tempsPreparation, tempsCuisson, niveauDifficulte, isVegetarien, isSansGluten, isBio, isEpice);

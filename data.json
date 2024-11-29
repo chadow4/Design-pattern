@@ -45,7 +45,7 @@
     {
       "id": 6,
       "nom": "Oeuf sur le plat",
-      "categorie": "Plat principal",
+      "categorie": "Dessert",
       "ingredients": [
         {
           "nom": "Oeuf",
@@ -61,6 +61,26 @@
       "isSansGluten": true,
       "isBio": true,
       "isPasCher": true
+    },
+    {
+      "id": 8,
+      "nom": "a",
+      "categorie": "Entrée",
+      "ingredients": [
+        {
+          "nom": "Tomate",
+          "quantite": 1.0,
+          "unite": "KG"
+        }
+      ],
+      "instructions": "a",
+      "tempsPreparation": 1,
+      "tempsCuisson": 1,
+      "niveauDifficulte": "Facile",
+      "isVegetarien": true,
+      "isSansGluten": false,
+      "isBio": false,
+      "isPasCher": false
     }
   ]
 }

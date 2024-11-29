@@ -100,9 +100,9 @@ public class Controleur implements LanceurOrdre {
         }
     }
 
-    public void supprimerRecette(String nom) {
+    public void supprimerRecette(int id) {
         try {
-            facadeGestionRecettes.supprimerRecette(nom);
+            facadeGestionRecettes.supprimerRecette(id);
             fireOrdre(TypeOrdre.RECETTE_SUPPRIMEE);
         } catch (RecetteIntrouvableException | SauvegardeException e) {
             fireOrdre(TypeOrdre.ERREUR_RECETTE_INTROUVABLE);
