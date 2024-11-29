@@ -2,6 +2,7 @@ package fr.insa.recettes.vues;
 
 import fr.insa.recettes.modele.Ingredient;
 import fr.insa.recettes.modele.Recette;
+import fr.insa.recettes.modele.RecetteBuilder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -25,7 +26,7 @@ public class RecetteDialog extends Dialog<Recette> {
     private CheckBox bioCheck;
     private CheckBox epiceCheck;
 
-
+    private RecetteBuilder recetteBuilder;
     private ComboBox<Ingredient> ingredientComboBox;
     private TextField ingredientQuantiteField;
     private ListView<String> ingredientsListView;
@@ -114,7 +115,7 @@ public class RecetteDialog extends Dialog<Recette> {
         grid.add(ingredientHBox, 1, 8);
         grid.add(ingredientsListView, 1, 9);
         grid.add(supprimerIngredientButton, 1, 10);
-
+        recetteBuilder = new RecetteBuilder(recette);
         if (recette != null) {
             nomField.setText(recette.getNom());
             categorieCombo.setValue(recette.getCategorie());
@@ -149,26 +150,23 @@ public class RecetteDialog extends Dialog<Recette> {
                     boolean isBio = bioCheck.isSelected();
                     boolean isEpice = epiceCheck.isSelected();
                     
-                    if (nomRecette.isEmpty() || categorie.isEmpty() || instructions.isEmpty() || niveauDifficulte == null || ingredientsRecette.isEmpty()) {
+                    if (categorie == null || nomRecette.isEmpty() || categorie.isEmpty() || instructions.isEmpty() || niveauDifficulte == null || ingredientsRecette.isEmpty()) {
                         Alert alert = new Alert(Alert.AlertType.ERROR, "Veuillez remplir tous les champs et ajouter au moins un ingrédient.", ButtonType.OK);
                         alert.showAndWait();
                         return null;
                     }
-                    if(recette != null) {
-                        recette.setNom(nomRecette);
-                        recette.setCategorie(categorie);
-                        recette.setInstructions(instructions);
-                        recette.setTempsPreparation(tempsPreparation);
-                        recette.setTempsCuisson(tempsCuisson);
-                        recette.setNiveauDifficulte(niveauDifficulte);
-                        return recette;
-                    }else{
-                        return new Recette(nomRecette, categorie, ingredientsRecette, instructions, tempsPreparation, tempsCuisson, niveauDifficulte, isVegetarien, isSansGluten, isBio, isEpice);
-                    }
-
-
-
-
+                    recetteBuilder.setNom(nomRecette)
+                            .setCategorie(categorie)
+                            .setInstructions(instructions)
+                            .setIngredients(ingredientsRecette)
+                            .setTempsPreparation(tempsPreparation)
+                            .setTempsCuisson(tempsCuisson)
+                            .setNiveauDifficulte(niveauDifficulte)
+                            .setIsVegetarien(isVegetarien)
+                            .setIsSansGluten(isSansGluten)
+                            .setIsBio(isBio)
+                            .setIsPasCher(isEpice);
+                    return recetteBuilder.build();
                 } catch (NumberFormatException e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR, "Les temps de préparation et de cuisson doivent être des nombres entiers.", ButtonType.OK);
                     alert.showAndWait();

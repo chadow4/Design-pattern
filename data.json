@@ -45,7 +45,7 @@
     {
       "id": 6,
       "nom": "Oeuf sur le plat",
-      "categorie": "Plat principal",
+      "categorie": "Dessert",
       "ingredients": [
         {
           "nom": "Oeuf",
@@ -61,6 +61,26 @@
       "isSansGluten": true,
       "isBio": true,
       "isPasCher": true
+    },
+    {
+      "id": 8,
+      "nom": "Tomate Cuite",
+      "categorie": "Entrée",
+      "ingredients": [
+        {
+          "nom": "Tomate",
+          "quantite": 1.0,
+          "unite": "KG"
+        }
+      ],
+      "instructions": "les tomates sont cuites",
+      "tempsPreparation": 6,
+      "tempsCuisson": 7,
+      "niveauDifficulte": "Facile",
+      "isVegetarien": true,
+      "isSansGluten": true,
+      "isBio": false,
+      "isPasCher": false
     }
   ]
 }
