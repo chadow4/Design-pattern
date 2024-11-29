@@ -70,6 +70,11 @@ public class RecetteBuilder {
         return this;
     }
 
+    public RecetteBuilder setIsFavori(boolean isFavori) {
+        this.recette.setIsFavori(isFavori);
+        return this;
+    }
+
     public Recette build() {
         Recette result = this.recette;
         this.recette = new Recette();
