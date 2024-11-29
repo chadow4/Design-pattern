@@ -66,14 +66,9 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
 
     private List<Ingredient> ingredientsRecette;
 
+
     public static CreationRecette creer(GestionnaireVue g) throws IOException {
-        FXMLLoader loader = new FXMLLoader(CreationRecette.class.getResource("creationRecette.fxml"));
-        BorderPane root = loader.load();
-        CreationRecette vue = loader.getController();
-        g.ajouterVueInteractive(vue);
-        g.ajouterEcouteurOrdre(vue);
-        vue.initialiserScene(root);
-        return vue;
+        return VueFactory.creerVue("creationRecette.fxml", g);
     }
 
     public void initialiserScene(BorderPane root) {
