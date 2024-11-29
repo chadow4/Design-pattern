@@ -122,11 +122,15 @@ public class Controleur implements LanceurOrdre {
     }
 
     public List<Recette> rechercherRecettesParNom(String nom) {
-        return facadeGestionRecettes.rechercherRecettesParNom(nom);
+        return facadeGestionRecettes.rechercherRecettes("Nom", nom);
     }
 
     public List<Recette> filtrerRecettesParCategorie(String categorie) {
-        return facadeGestionRecettes.filtrerRecettesParCategorie(categorie);
+        return facadeGestionRecettes.rechercherRecettes("Categorie", categorie);
+    }
+
+    public List<Recette> filtrerRecettesParOption(String option) {
+        return facadeGestionRecettes.rechercherRecettes("Option", option);
     }
 
     public void initRecetteId() {

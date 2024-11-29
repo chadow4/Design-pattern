@@ -1,7 +1,7 @@
 package fr.insa.recettes.modele;
 
 import fr.insa.recettes.modele.exceptions.*;
-
+import fr.insa.recettes.modele.rechercheStrategy.*;
 import java.util.List;
 
 public interface FacadeGestionRecettes {
@@ -11,7 +11,6 @@ public interface FacadeGestionRecettes {
 
     void supprimerIngredient(String nom) throws IngredientIntrouvableException, SauvegardeException;
 
-
     List<Ingredient> getInventaire();
 
     void ajouterRecette(Recette recette) throws RecetteDejaExistanteException, SauvegardeException;
@@ -20,11 +19,9 @@ public interface FacadeGestionRecettes {
 
     void supprimerRecette(int id) throws RecetteIntrouvableException, SauvegardeException;
 
+    List<Recette> rechercherRecettes(String strategy, String str);
+
     List<Recette> getRecettes();
-
-    List<Recette> rechercherRecettesParNom(String nom);
-
-    List<Recette> filtrerRecettesParCategorie(String categorie);
 
     List<Recette> getRecettesRealisables();
 
@@ -35,5 +32,9 @@ public interface FacadeGestionRecettes {
     void sauvegarderDonnees() throws SauvegardeException;
 
     void chargerDonnees() throws ChargementException;
+
+    List<Recette> executeRechercheStrategy(List<Recette> recettes, String str);
+
+    void setRechercheStrategy(RechercheStrategy strategy);
 
 }

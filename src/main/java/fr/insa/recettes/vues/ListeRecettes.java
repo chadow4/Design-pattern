@@ -33,6 +33,9 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
     @FXML
     private ComboBox<String> filtreCategorieCombo;
 
+    @FXML
+    private ComboBox<String> filtreOptionCombo;
+
     private ObservableList<String> recettesObservableList;
 
     private Scene scene;
@@ -62,6 +65,8 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
         // Initialize category filter ComboBox
         filtreCategorieCombo.setItems(FXCollections.observableArrayList("Toutes", "Entrée", "Plat principal", "Dessert"));
         filtreCategorieCombo.setValue("Toutes");
+        filtreOptionCombo.setItems(FXCollections.observableArrayList("Toutes", "Vegetarien", "SansGluten", "Bio", "PasCher"));
+        filtreOptionCombo.setValue("Toutes");
     }
 
     public Scene getScene() {
@@ -163,6 +168,7 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
     public void rechercherRecette(ActionEvent event) {
         String recherche = rechercheField.getText().toLowerCase();
         String categorieFiltre = filtreCategorieCombo.getValue();
+        String optionFiltre = filtreOptionCombo.getValue();
 
         List<Recette> recettesFiltrees = controleur.getRecettes();
 
@@ -170,9 +176,12 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
             recettesFiltrees = controleur.filtrerRecettesParCategorie(categorieFiltre);
         }
 
+        if (!optionFiltre.equals("Toutes")) {
+            recettesFiltrees = controleur.filtrerRecettesParOption(optionFiltre);
+        }
+
         if (!recherche.isEmpty()) {
             recettesFiltrees= controleur.rechercherRecettesParNom(recherche);
-
         }
 
         recettesAffichees = recettesFiltrees;

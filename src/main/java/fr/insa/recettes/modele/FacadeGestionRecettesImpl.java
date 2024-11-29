@@ -1,6 +1,7 @@
 package fr.insa.recettes.modele;
 
 import fr.insa.recettes.modele.exceptions.*;
+import fr.insa.recettes.modele.rechercheStrategy.*;
 import fr.insa.recettes.utils.DataManager;
 
 import java.io.IOException;
@@ -8,10 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 public class FacadeGestionRecettesImpl implements FacadeGestionRecettes {
 
     private List<Ingredient> inventaire;
     private List<Recette> recettes;
+    private RechercheStrategy rechercheStrategy;
 
     private static FacadeGestionRecettesImpl instance = null;
 
@@ -69,6 +72,24 @@ public class FacadeGestionRecettesImpl implements FacadeGestionRecettes {
     }
 
     @Override
+    public List<Recette> rechercherRecettes(String strategy, String str){
+        switch(strategy){
+            case "Nom" :
+                this.setRechercheStrategy(new RechercheParNomStrategy());
+                break;
+            case "Categorie" :
+                this.setRechercheStrategy(new RechercheParCategorieStrategy());
+                break;
+            case "Option":
+                this.setRechercheStrategy(new RechercheParOptionStrategy());
+                break;
+            default:
+                break;
+        }
+        return this.executeRechercheStrategy(this.getRecettes(), str);
+    }
+
+    @Override
     public List<Ingredient> getInventaire() {
         return new ArrayList<>(inventaire);
     }
@@ -118,20 +139,6 @@ public class FacadeGestionRecettesImpl implements FacadeGestionRecettes {
     @Override
     public List<Recette> getRecettes() {
         return new ArrayList<>(recettes);
-    }
-
-    @Override
-    public List<Recette> rechercherRecettesParNom(String nom) {
-        return recettes.stream()
-                .filter(r -> r.getNom().toLowerCase().contains(nom.toLowerCase()))
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public List<Recette> filtrerRecettesParCategorie(String categorie) {
-        return recettes.stream()
-                .filter(r -> r.getCategorie().equalsIgnoreCase(categorie))
-                .collect(Collectors.toList());
     }
 
     @Override
@@ -206,5 +213,13 @@ public class FacadeGestionRecettesImpl implements FacadeGestionRecettes {
         } catch (Exception e) {
             throw new ChargementException("Erreur lors du chargement des données.");
         }
+    }
+
+    public void setRechercheStrategy(RechercheStrategy rechercheStrategy) {
+        this.rechercheStrategy = rechercheStrategy;
+    }
+
+    public List<Recette> executeRechercheStrategy(List<Recette> recettes, String str) {
+        return this.rechercheStrategy.recherche(this.getRecettes(), str);
     }
 }
