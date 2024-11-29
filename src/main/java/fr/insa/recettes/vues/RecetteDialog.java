@@ -162,7 +162,7 @@ public class RecetteDialog extends Dialog<Recette> {
                         recette.setNiveauDifficulte(niveauDifficulte);
                         return recette;
                     }else{
-                        return new Recette(nomRecette, categorie, ingredientsRecette, instructions, tempsPreparation, tempsCuisson, niveauDifficulte);
+                        return new Recette(nomRecette, categorie, ingredientsRecette, instructions, tempsPreparation, tempsCuisson, niveauDifficulte, isVegetarien, isSansGluten, isBio, isEpice);
                     }
 
 
@@ -175,7 +175,7 @@ public class RecetteDialog extends Dialog<Recette> {
                 }
             }
             return null;
-        };
+        });
     }
 
     private void ajouterIngredient() {

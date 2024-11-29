@@ -52,8 +52,5 @@ public class Accueil implements VueInteractive {
     public void accederRecettes(ActionEvent event) {
         controleur.fireOrdre(TypeOrdre.SHOW_LISTE_RECETTES);
     }
-
-    public void creerRecette(ActionEvent event) {
-        controleur.fireOrdre(TypeOrdre.SHOW_CREATION_RECETTE);
-    }
+    
 }

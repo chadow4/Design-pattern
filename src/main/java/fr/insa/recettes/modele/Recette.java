@@ -26,7 +26,7 @@ public class Recette {
     }
 
     public Recette(String nom, String categorie, List<Ingredient> ingredients, String instructions,
-                   int tempsPreparation, int tempsCuisson, String niveauDifficulte) {
+                   int tempsPreparation, int tempsCuisson, String niveauDifficulte,boolean isVegetarien, boolean isSansGluten, boolean isBio, boolean isPasCher) {
 
         this.id = ++maxId;
         this.nom = nom;

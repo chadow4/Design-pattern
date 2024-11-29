@@ -21,14 +21,14 @@
       "unite": "Litre"
     },
     {
-      "nom": "Farine",
-      "quantite": 200.0,
+      "nom": "Sucre",
+      "quantite": 300.0,
       "unite": "KG"
     },
     {
-      "nom": "Sucre",
-      "quantite": 200.0,
-      "unite": "KG"
+      "nom": "pomme de terre",
+      "quantite": 10.0,
+      "unite": "T"
     }
   ],
   "recettes": [
@@ -46,7 +46,11 @@
       "instructions": "aze",
       "tempsPreparation": 10,
       "tempsCuisson": 10,
-      "niveauDifficulte": "Facile"
+      "niveauDifficulte": "Facile",
+      "isVegetarien": false,
+      "isSansGluten": false,
+      "isBio": false,
+      "isPasCher": false
     },
     {
       "id": 6,
@@ -62,7 +66,11 @@
       "instructions": "aze",
       "tempsPreparation": 10,
       "tempsCuisson": 10,
-      "niveauDifficulte": "Facile"
+      "niveauDifficulte": "Facile",
+      "isVegetarien": false,
+      "isSansGluten": false,
+      "isBio": false,
+      "isPasCher": false
     },
     {
       "id": 8,
@@ -78,7 +86,99 @@
       "instructions": "qsd\t",
       "tempsPreparation": 12,
       "tempsCuisson": 12,
-      "niveauDifficulte": "Intermédiaire"
+      "niveauDifficulte": "Intermédiaire",
+      "isVegetarien": false,
+      "isSansGluten": false,
+      "isBio": false,
+      "isPasCher": false
+    },
+    {
+      "id": 9,
+      "nom": "Tarte au patates",
+      "categorie": "Plat",
+      "ingredients": [],
+      "instructions": "faire la tarte avec amour et passion\t ",
+      "tempsPreparation": 30,
+      "tempsCuisson": 20,
+      "niveauDifficulte": "Difficile",
+      "isVegetarien": false,
+      "isSansGluten": false,
+      "isBio": true,
+      "isPasCher": false
+    },
+    {
+      "id": 11,
+      "nom": "tarte",
+      "categorie": "e",
+      "ingredients": [
+        {
+          "nom": "Oeuf",
+          "quantite": 10.0,
+          "unite": "unité"
+        }
+      ],
+      "instructions": "e\t\t ",
+      "tempsPreparation": 20,
+      "tempsCuisson": 20,
+      "niveauDifficulte": "Intermédiaire",
+      "isVegetarien": false,
+      "isSansGluten": false,
+      "isBio": false,
+      "isPasCher": false
+    },
+    {
+      "id": 12,
+      "nom": "e",
+      "categorie": "e",
+      "ingredients": [],
+      "instructions": "e\t",
+      "tempsPreparation": 10,
+      "tempsCuisson": 10,
+      "niveauDifficulte": "Difficile",
+      "isVegetarien": false,
+      "isSansGluten": false,
+      "isBio": true,
+      "isPasCher": false
+    },
+    {
+      "id": 14,
+      "nom": "test3",
+      "categorie": "test",
+      "ingredients": [
+        {
+          "nom": "Tomate",
+          "quantite": 10.0,
+          "unite": "KG"
+        }
+      ],
+      "instructions": "deee",
+      "tempsPreparation": 10,
+      "tempsCuisson": 10,
+      "niveauDifficulte": "Difficile",
+      "isVegetarien": true,
+      "isSansGluten": false,
+      "isBio": false,
+      "isPasCher": false
+    },
+    {
+      "id": 16,
+      "nom": "test",
+      "categorie": "ee",
+      "ingredients": [
+        {
+          "nom": "Pomme",
+          "quantite": 10.0,
+          "unite": "KG"
+        }
+      ],
+      "instructions": "salut",
+      "tempsPreparation": 10,
+      "tempsCuisson": 10,
+      "niveauDifficulte": "Difficile",
+      "isVegetarien": false,
+      "isSansGluten": false,
+      "isBio": false,
+      "isPasCher": true
     }
   ]
 }

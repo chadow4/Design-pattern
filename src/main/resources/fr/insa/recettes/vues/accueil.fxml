@@ -7,9 +7,8 @@
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.insa.recettes.vues.Accueil">
     <center>
         <VBox alignment="CENTER" spacing="20">
-            <Button text="Accéder à l'inventaire" onAction="#accederInventaire" />
-            <Button text="Créer une recette" onAction="#creerRecette" />
-            <Button text="Voir les recettes" onAction="#accederRecettes" />
+            <Button text="Gérer Inventaire" onAction="#accederInventaire" />
+            <Button text="Gérer Recettes" onAction="#accederRecettes" />
         </VBox>
     </center>
 </BorderPane>
