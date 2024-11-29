@@ -40,7 +40,8 @@
       "isVegetarien": true,
       "isSansGluten": false,
       "isBio": true,
-      "isPasCher": false
+      "isPasCher": false,
+      "isFavori": false
     },
     {
       "id": 6,
@@ -60,7 +61,8 @@
       "isVegetarien": true,
       "isSansGluten": true,
       "isBio": true,
-      "isPasCher": true
+      "isPasCher": true,
+      "isFavori": false
     },
     {
       "id": 8,
@@ -79,28 +81,28 @@
       "niveauDifficulte": "Facile",
       "isVegetarien": true,
       "isSansGluten": false,
-      "isBio": false,
-      "isPasCher": false
+      "isBio": true,
+      "isPasCher": true,
+      "isFavori": true
     },
     {
       "id": 10,
-      "nom": "OK",
+      "nom": "b",
       "categorie": "Plat principal",
       "ingredients": [
         {
-          "nom": "Riz",
-          "quantite": 5.0,
+          "nom": "Tomate",
+          "quantite": 1.0,
           "unite": "KG"
         }
       ],
-      "instructions": "OK",
-      "tempsPreparation": 2,
-      "tempsCuisson": 2,
-      "niveauDifficulte": "Intermédiaire",
+      "instructions": "azeaz",
+      "tempsPreparation": 10,
+      "tempsCuisson": 10,
+      "niveauDifficulte": "Facile",
       "isVegetarien": false,
       "isSansGluten": false,
-      "isBio": true,
-      "isPasCher": true
+      "isBio": false,
     }
   ]
 }

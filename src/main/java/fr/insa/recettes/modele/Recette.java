@@ -19,6 +19,7 @@ public class Recette {
     private boolean isSansGluten;
     private boolean isBio;
     private boolean isPasCher;
+    private boolean isFavori;
 
 
     public Recette() {
@@ -84,6 +85,8 @@ public class Recette {
 
     public boolean getIsPasCher() { return isPasCher; }
 
+    public boolean getIsFavori() { return isFavori;}
+
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -121,6 +124,8 @@ public class Recette {
     public void setIsBio(boolean isBio) { this.isBio = isBio; }
 
     public void setIsPasCher(boolean isPasCher) { this.isPasCher = isPasCher; }
+
+    public void setIsFavori(boolean isFavori) { this.isFavori = isFavori;}
 
     @Override
     public String toString() {

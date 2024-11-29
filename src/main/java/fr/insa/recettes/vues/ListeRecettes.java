@@ -63,7 +63,7 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
         });
 
         // Initialize category filter ComboBox
-        filtreCategorieCombo.setItems(FXCollections.observableArrayList("Toutes", "Entrée", "Plat principal", "Dessert"));
+        filtreCategorieCombo.setItems(FXCollections.observableArrayList("Toutes", "Entrée", "Plat principal", "Dessert","Favorites"));
         filtreCategorieCombo.setValue("Toutes");
         filtreOptionCombo.setItems(FXCollections.observableArrayList("Toutes", "Vegetarien", "SansGluten", "Bio", "PasCher"));
         filtreOptionCombo.setValue("Toutes");
@@ -182,6 +182,10 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
 
         if (!recherche.isEmpty()) {
             recettesFiltrees= controleur.rechercherRecettesParNom(recherche);
+        }
+
+        if(categorieFiltre.equals("Favorites")){
+            recettesFiltrees = controleur.filtrerRecettesFavorites();
         }
 
         recettesAffichees = recettesFiltrees;

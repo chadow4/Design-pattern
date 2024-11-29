@@ -133,6 +133,10 @@ public class Controleur implements LanceurOrdre {
         return facadeGestionRecettes.rechercherRecettes("Option", option);
     }
 
+    public List<Recette> filtrerRecettesFavorites() {
+        return facadeGestionRecettes.filtrerRecettesFavorites();
+    }
+
     public void initRecetteId() {
         Recette r = new Recette();
         r.setMaxId(facadeGestionRecettes.getMaxId());
