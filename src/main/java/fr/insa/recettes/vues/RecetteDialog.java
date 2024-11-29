@@ -72,11 +72,6 @@ public class RecetteDialog extends Dialog<Recette> {
         bioCheck = new CheckBox("Ingrédients bio");
         epiceCheck = new CheckBox("Épicé");
 
-        grid.add(vegetarienCheck, 0, 9);
-        grid.add(sansGlutenCheck, 1, 9);
-        grid.add(bioCheck, 0, 10);
-        grid.add(epiceCheck, 1, 10);
-
         // Gestion des ingrédients
         ingredientComboBox = new ComboBox<>();
         ingredientComboBox.setItems(FXCollections.observableArrayList(inventaire));
@@ -110,14 +105,14 @@ public class RecetteDialog extends Dialog<Recette> {
         grid.add(tempsCuissonField, 1, 4);
         grid.add(new Label("Niveau de difficulté:"), 0, 5);
         grid.add(niveauDifficulteCombo, 1, 5);
-        grid.add(vegetarienCheck, 0, 9);
-        grid.add(sansGlutenCheck, 1, 9);
-        grid.add(bioCheck, 0, 10);
-        grid.add(epiceCheck, 1, 10);
-        grid.add(new Label("Ingrédients:"), 0, 6);
-        grid.add(ingredientHBox, 1, 6);
-        grid.add(ingredientsListView, 1, 7);
-        grid.add(supprimerIngredientButton, 1, 8);
+        grid.add(vegetarienCheck, 0, 6);
+        grid.add(sansGlutenCheck, 1, 6);
+        grid.add(bioCheck, 0, 7);
+        grid.add(epiceCheck, 1, 7);
+        grid.add(new Label("Ingrédients:"), 0, 8);
+        grid.add(ingredientHBox, 1, 8);
+        grid.add(ingredientsListView, 1, 9);
+        grid.add(supprimerIngredientButton, 1, 10);
 
         if (recette != null) {
             nomField.setText(recette.getNom());
