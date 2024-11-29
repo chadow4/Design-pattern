@@ -16,28 +16,14 @@
       "unite": "Unité"
     },
     {
-      "nom": "Pate",
-      "quantite": 1.0,
+      "nom": "Riz",
+      "quantite": 5.0,
       "unite": "KG"
     }
   ],
   "recettes": [
     {
-      "nom": "Purée de patate",
-      "categorie": "Plat principal",
-      "ingredients": [
-        {
-          "nom": "Patates",
-          "quantite": 3.0,
-          "unite": "Unité"
-        }
-      ],
-      "instructions": "Écraser les patates",
-      "tempsPreparation": 30,
-      "tempsCuisson": 60,
-      "niveauDifficulte": "Intermédiaire"
-    },
-    {
+      "id": 4,
       "nom": "Omelette",
       "categorie": "Plat principal",
       "ingredients": [
@@ -47,10 +33,34 @@
           "unite": "unité"
         }
       ],
-      "instructions": "Beurrer votre poele. \nCasser les oeux et mélanger le jaune et le blanc dans un grand bol, battre fortement, puis verser dans une poele.\nFaire chauffer à feu doux pendant 5 minutes et remuer pour éviter d\u0027accrocher",
-      "tempsPreparation": 10,
-      "tempsCuisson": 10,
-      "niveauDifficulte": "Facile"
+      "instructions": "Melanger oeufs",
+      "tempsPreparation": 8,
+      "tempsCuisson": 8,
+      "niveauDifficulte": "Intermédiaire",
+      "isVegetarien": true,
+      "isSansGluten": false,
+      "isBio": true,
+      "isPasCher": false
+    },
+    {
+      "id": 6,
+      "nom": "Oeuf sur le plat",
+      "categorie": "Plat principal",
+      "ingredients": [
+        {
+          "nom": "Oeuf",
+          "quantite": 1.0,
+          "unite": "unité"
+        }
+      ],
+      "instructions": "Va te faire cuire un oeuf aux épices",
+      "tempsPreparation": 5,
+      "tempsCuisson": 5,
+      "niveauDifficulte": "Facile",
+      "isVegetarien": true,
+      "isSansGluten": true,
+      "isBio": true,
+      "isPasCher": true
     }
   ]
 }
