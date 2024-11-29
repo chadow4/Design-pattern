@@ -15,7 +15,7 @@ import java.util.List;
 public class RecetteDialog extends Dialog<Recette> {
 
     private TextField nomField;
-    private TextField categorieField;
+    private ComboBox<String> categorieCombo;
     private TextArea instructionsArea;
     private TextField tempsPreparationField;
     private TextField tempsCuissonField;
@@ -51,8 +51,9 @@ public class RecetteDialog extends Dialog<Recette> {
         nomField = new TextField();
         nomField.setPromptText("Nom de la recette");
 
-        categorieField = new TextField();
-        categorieField.setPromptText("Catégorie");
+        categorieCombo = new ComboBox<String>();
+        categorieCombo.setPromptText("Catégorie");
+        categorieCombo.setItems(FXCollections.observableArrayList("Entrée", "Plat principal", "Dessert"));;
 
         instructionsArea = new TextArea();
         instructionsArea.setPromptText("Instructions");
@@ -96,7 +97,7 @@ public class RecetteDialog extends Dialog<Recette> {
         grid.add(new Label("Nom de la recette:"), 0, 0);
         grid.add(nomField, 1, 0);
         grid.add(new Label("Catégorie:"), 0, 1);
-        grid.add(categorieField, 1, 1);
+        grid.add(categorieCombo, 1, 1);
         grid.add(new Label("Instructions:"), 0, 2);
         grid.add(instructionsArea, 1, 2);
         grid.add(new Label("Temps de préparation (min):"), 0, 3);
@@ -116,7 +117,7 @@ public class RecetteDialog extends Dialog<Recette> {
 
         if (recette != null) {
             nomField.setText(recette.getNom());
-            categorieField.setText(recette.getCategorie());
+            categorieCombo.setValue(recette.getCategorie());
             instructionsArea.setText(recette.getInstructions());
             tempsPreparationField.setText(String.valueOf(recette.getTempsPreparation()));
             tempsCuissonField.setText(String.valueOf(recette.getTempsCuisson()));
@@ -137,7 +138,7 @@ public class RecetteDialog extends Dialog<Recette> {
             if (dialogButton == validerButtonType) {
                 try {
                     String nomRecette = nomField.getText();
-                    String categorie = categorieField.getText();
+                    String categorie = categorieCombo.getValue();
                     String instructions = instructionsArea.getText();
                     int tempsPreparation = Integer.parseInt(tempsPreparationField.getText());
                     int tempsCuisson = Integer.parseInt(tempsCuissonField.getText());

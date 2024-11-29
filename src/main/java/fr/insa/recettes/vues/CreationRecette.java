@@ -24,7 +24,7 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
     private TextField nomRecetteField;
 
     @FXML
-    private TextField categorieField;
+    private ComboBox<String> categorieField;
 
     @FXML
     private TextArea instructionsArea;
@@ -80,7 +80,7 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
         this.scene = new Scene(root);
         ingredientsObservableList = FXCollections.observableArrayList();
         ingredientsListView.setItems(ingredientsObservableList);
-
+        categorieField.setItems(FXCollections.observableArrayList("Entrée", "Plat principal", "Dessert"));
         niveauDifficulteCombo.setItems(FXCollections.observableArrayList("Facile", "Intermédiaire", "Difficile"));
 
         ingredientsRecette = new ArrayList<>();
@@ -157,7 +157,7 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
 
     public void ajouterRecette(ActionEvent event) {
         String nomRecette = nomRecetteField.getText();
-        String categorie = categorieField.getText();
+        String categorie = categorieField.getValue();
         String instructions = instructionsArea.getText();
         String tempsPreparationStr = tempsPreparationField.getText();
         String tempsCuissonStr = tempsCuissonField.getText();
@@ -167,7 +167,7 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
         boolean isBio = optionBioCheck.isSelected();
         boolean isPasCher = optionPasCherCheck.isSelected();
 
-        if (nomRecette.isEmpty() || categorie.isEmpty() || instructions.isEmpty() ||
+        if (nomRecette.isEmpty() || categorie == null || categorie.isEmpty() || instructions.isEmpty() ||
                 tempsPreparationStr.isEmpty() || tempsCuissonStr.isEmpty() || niveauDifficulte == null ||
                 ingredientsRecette.isEmpty()) {
             afficherErreur("Champs vides", "Veuillez remplir tous les champs et ajouter au moins un ingrédient.");
@@ -200,7 +200,7 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
 
     private void nettoyerChamps() {
         nomRecetteField.clear();
-        categorieField.clear();
+        categorieField.setValue(null);
         instructionsArea.clear();
         tempsPreparationField.clear();
         tempsCuissonField.clear();

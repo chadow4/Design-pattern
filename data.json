@@ -2,183 +2,55 @@
   "inventaire": [
     {
       "nom": "Tomate",
-      "quantite": 200.0,
+      "quantite": 35.0,
       "unite": "KG"
     },
     {
       "nom": "Oeuf",
-      "quantite": 200.0,
+      "quantite": 18.0,
       "unite": "unité"
     },
     {
-      "nom": "Pomme",
-      "quantite": 200.0,
+      "nom": "Patates",
+      "quantite": 5.0,
+      "unite": "Unité"
+    },
+    {
+      "nom": "Pate",
+      "quantite": 1.0,
       "unite": "KG"
-    },
-    {
-      "nom": "Lait",
-      "quantite": 200.0,
-      "unite": "Litre"
-    },
-    {
-      "nom": "Sucre",
-      "quantite": 300.0,
-      "unite": "KG"
-    },
-    {
-      "nom": "pomme de terre",
-      "quantite": 10.0,
-      "unite": "T"
     }
   ],
   "recettes": [
     {
-      "id": 2,
-      "nom": "aze",
-      "categorie": "aze",
+      "nom": "Purée de patate",
+      "categorie": "Plat principal",
       "ingredients": [
         {
-          "nom": "Tomate",
-          "quantite": 10.0,
-          "unite": "KG"
+          "nom": "Patates",
+          "quantite": 3.0,
+          "unite": "Unité"
         }
       ],
-      "instructions": "aze",
-      "tempsPreparation": 10,
-      "tempsCuisson": 10,
-      "niveauDifficulte": "Facile",
-      "isVegetarien": false,
-      "isSansGluten": false,
-      "isBio": false,
-      "isPasCher": false
-    },
-    {
-      "id": 6,
-      "nom": "qsd",
-      "categorie": "qsd",
-      "ingredients": [
-        {
-          "nom": "Tomate",
-          "quantite": 20.0,
-          "unite": "KG"
-        }
-      ],
-      "instructions": "aze",
-      "tempsPreparation": 10,
-      "tempsCuisson": 10,
-      "niveauDifficulte": "Facile",
-      "isVegetarien": false,
-      "isSansGluten": false,
-      "isBio": false,
-      "isPasCher": false
-    },
-    {
-      "id": 8,
-      "nom": "qsd",
-      "categorie": "qsd",
-      "ingredients": [
-        {
-          "nom": "Lait",
-          "quantite": 12.0,
-          "unite": "Litre"
-        }
-      ],
-      "instructions": "qsd\t",
-      "tempsPreparation": 12,
-      "tempsCuisson": 12,
-      "niveauDifficulte": "Intermédiaire",
-      "isVegetarien": false,
-      "isSansGluten": false,
-      "isBio": false,
-      "isPasCher": false
-    },
-    {
-      "id": 9,
-      "nom": "Tarte au patates",
-      "categorie": "Plat",
-      "ingredients": [],
-      "instructions": "faire la tarte avec amour et passion\t ",
+      "instructions": "Écraser les patates",
       "tempsPreparation": 30,
-      "tempsCuisson": 20,
-      "niveauDifficulte": "Difficile",
-      "isVegetarien": false,
-      "isSansGluten": false,
-      "isBio": true,
-      "isPasCher": false
+      "tempsCuisson": 60,
+      "niveauDifficulte": "Intermédiaire"
     },
     {
-      "id": 11,
-      "nom": "tarte",
-      "categorie": "e",
+      "nom": "Omelette",
+      "categorie": "Plat principal",
       "ingredients": [
         {
           "nom": "Oeuf",
-          "quantite": 10.0,
+          "quantite": 3.0,
           "unite": "unité"
         }
       ],
-      "instructions": "e\t\t ",
-      "tempsPreparation": 20,
-      "tempsCuisson": 20,
-      "niveauDifficulte": "Intermédiaire",
-      "isVegetarien": false,
-      "isSansGluten": false,
-      "isBio": false,
-      "isPasCher": false
-    },
-    {
-      "id": 12,
-      "nom": "e",
-      "categorie": "e",
-      "ingredients": [],
-      "instructions": "e\t",
+      "instructions": "Beurrer votre poele. \nCasser les oeux et mélanger le jaune et le blanc dans un grand bol, battre fortement, puis verser dans une poele.\nFaire chauffer à feu doux pendant 5 minutes et remuer pour éviter d\u0027accrocher",
       "tempsPreparation": 10,
       "tempsCuisson": 10,
-      "niveauDifficulte": "Difficile",
-      "isVegetarien": false,
-      "isSansGluten": false,
-      "isBio": true,
-      "isPasCher": false
-    },
-    {
-      "id": 14,
-      "nom": "test3",
-      "categorie": "test",
-      "ingredients": [
-        {
-          "nom": "Tomate",
-          "quantite": 10.0,
-          "unite": "KG"
-        }
-      ],
-      "instructions": "deee",
-      "tempsPreparation": 10,
-      "tempsCuisson": 10,
-      "niveauDifficulte": "Difficile",
-      "isVegetarien": true,
-      "isSansGluten": false,
-      "isBio": false,
-      "isPasCher": false
-    },
-    {
-      "id": 16,
-      "nom": "test",
-      "categorie": "ee",
-      "ingredients": [
-        {
-          "nom": "Pomme",
-          "quantite": 10.0,
-          "unite": "KG"
-        }
-      ],
-      "instructions": "salut",
-      "tempsPreparation": 10,
-      "tempsCuisson": 10,
-      "niveauDifficulte": "Difficile",
-      "isVegetarien": false,
-      "isSansGluten": false,
-      "isBio": false,
-      "isPasCher": true
+      "niveauDifficulte": "Facile"
     }
   ]
 }
