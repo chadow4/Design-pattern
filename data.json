@@ -81,6 +81,26 @@
       "isSansGluten": false,
       "isBio": false,
       "isPasCher": false
+    },
+    {
+      "id": 10,
+      "nom": "OK",
+      "categorie": "Plat principal",
+      "ingredients": [
+        {
+          "nom": "Riz",
+          "quantite": 5.0,
+          "unite": "KG"
+        }
+      ],
+      "instructions": "OK",
+      "tempsPreparation": 2,
+      "tempsCuisson": 2,
+      "niveauDifficulte": "Intermédiaire",
+      "isVegetarien": false,
+      "isSansGluten": false,
+      "isBio": true,
+      "isPasCher": true
     }
   ]
 }
