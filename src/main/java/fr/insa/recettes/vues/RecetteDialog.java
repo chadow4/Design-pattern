@@ -23,7 +23,7 @@ public class RecetteDialog extends Dialog<Recette> {
     private CheckBox vegetarienCheck;
     private CheckBox sansGlutenCheck;
     private CheckBox bioCheck;
-    private CheckBox epiceCheck;
+    private CheckBox pasCherCheck;
 
 
     private ComboBox<Ingredient> ingredientComboBox;
@@ -71,7 +71,7 @@ public class RecetteDialog extends Dialog<Recette> {
         vegetarienCheck = new CheckBox("Végétarien");
         sansGlutenCheck = new CheckBox("Sans gluten");
         bioCheck = new CheckBox("Ingrédients bio");
-        epiceCheck = new CheckBox("Épicé");
+        pasCherCheck = new CheckBox("Pas cher");
 
         // Gestion des ingrédients
         ingredientComboBox = new ComboBox<>();
@@ -109,7 +109,7 @@ public class RecetteDialog extends Dialog<Recette> {
         grid.add(vegetarienCheck, 0, 6);
         grid.add(sansGlutenCheck, 1, 6);
         grid.add(bioCheck, 0, 7);
-        grid.add(epiceCheck, 1, 7);
+        grid.add(pasCherCheck, 1, 7);
         grid.add(new Label("Ingrédients:"), 0, 8);
         grid.add(ingredientHBox, 1, 8);
         grid.add(ingredientsListView, 1, 9);
@@ -126,7 +126,7 @@ public class RecetteDialog extends Dialog<Recette> {
             vegetarienCheck.setSelected(recette.getIsVegetarien());
             sansGlutenCheck.setSelected(recette.getIsSansGluten());
             bioCheck.setSelected(recette.getIsBio());
-            epiceCheck.setSelected(recette.getIsPasCher());
+            pasCherCheck.setSelected(recette.getIsPasCher());
             for (Ingredient ingredient : ingredientsRecette) {
                 ingredientsObservableList.add(ingredient.getNom() + " - " + ingredient.getQuantite() + " " + ingredient.getUnite());
             }
@@ -147,7 +147,7 @@ public class RecetteDialog extends Dialog<Recette> {
                     boolean isVegetarien = vegetarienCheck.isSelected();
                     boolean isSansGluten = sansGlutenCheck.isSelected();
                     boolean isBio = bioCheck.isSelected();
-                    boolean isEpice = epiceCheck.isSelected();
+                    boolean isPasCher = pasCherCheck.isSelected();
                     
                     if (categorie == null || nomRecette.isEmpty() || categorie.isEmpty() || instructions.isEmpty() || niveauDifficulte == null || ingredientsRecette.isEmpty()) {
                         Alert alert = new Alert(Alert.AlertType.ERROR, "Veuillez remplir tous les champs et ajouter au moins un ingrédient.", ButtonType.OK);
@@ -164,10 +164,10 @@ public class RecetteDialog extends Dialog<Recette> {
                         recette.setIsVegetarien(isVegetarien);
                         recette.setIsSansGluten(isSansGluten);
                         recette.setIsBio(isBio);
-                        recette.setIsPasCher(isEpice);
+                        recette.setIsPasCher(isPasCher);
                         return recette;
                     }else{
-                        return new Recette(nomRecette, categorie, ingredientsRecette, instructions, tempsPreparation, tempsCuisson, niveauDifficulte, isVegetarien, isSansGluten, isBio, isEpice);
+                        return new Recette(nomRecette, categorie, ingredientsRecette, instructions, tempsPreparation, tempsCuisson, niveauDifficulte, isVegetarien, isSansGluten, isBio, isPasCher);
                     }
 
 
