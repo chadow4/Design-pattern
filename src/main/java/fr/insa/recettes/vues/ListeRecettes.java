@@ -97,7 +97,6 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
             case INGREDIENT_SUPPRIME:
                 chargerListeRecettes();
                 break;
-            // Other cases...
         }
     }
 
@@ -165,9 +164,8 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
         }
 
         if (!recherche.isEmpty()) {
-            recettesFiltrees = recettesFiltrees.stream()
-                    .filter(r -> r.getNom().toLowerCase().contains(recherche))
-                    .collect(Collectors.toList());
+            recettesFiltrees= controleur.rechercherRecettesParNom(recherche);
+
         }
 
         recettesAffichees = recettesFiltrees;
@@ -207,6 +205,7 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
             RecetteDialog dialog = new RecetteDialog(recette, controleur.getInventaire());
             dialog.setTitle("Modifier la recette");
             dialog.showAndWait().ifPresent(recetteModifiee -> {
+                System.out.println("notre recette modified " + recetteModifiee + " " + recetteModifiee.getId());
                 controleur.modifierRecette(recetteModifiee);
             });
         } else {

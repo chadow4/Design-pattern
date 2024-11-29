@@ -2,14 +2,83 @@
   "inventaire": [
     {
       "nom": "Tomate",
-      "quantite": 35.0,
+      "quantite": 200.0,
       "unite": "KG"
     },
     {
       "nom": "Oeuf",
-      "quantite": 18.0,
+      "quantite": 200.0,
       "unite": "unité"
+    },
+    {
+      "nom": "Pomme",
+      "quantite": 200.0,
+      "unite": "KG"
+    },
+    {
+      "nom": "Lait",
+      "quantite": 200.0,
+      "unite": "Litre"
+    },
+    {
+      "nom": "Farine",
+      "quantite": 200.0,
+      "unite": "KG"
+    },
+    {
+      "nom": "Sucre",
+      "quantite": 200.0,
+      "unite": "KG"
     }
   ],
-  "recettes": []
+  "recettes": [
+    {
+      "id": 2,
+      "nom": "aze",
+      "categorie": "aze",
+      "ingredients": [
+        {
+          "nom": "Tomate",
+          "quantite": 10.0,
+          "unite": "KG"
+        }
+      ],
+      "instructions": "aze",
+      "tempsPreparation": 10,
+      "tempsCuisson": 10,
+      "niveauDifficulte": "Facile"
+    },
+    {
+      "id": 6,
+      "nom": "qsd",
+      "categorie": "qsd",
+      "ingredients": [
+        {
+          "nom": "Tomate",
+          "quantite": 20.0,
+          "unite": "KG"
+        }
+      ],
+      "instructions": "aze",
+      "tempsPreparation": 10,
+      "tempsCuisson": 10,
+      "niveauDifficulte": "Facile"
+    },
+    {
+      "id": 8,
+      "nom": "qsd",
+      "categorie": "qsd",
+      "ingredients": [
+        {
+          "nom": "Lait",
+          "quantite": 12.0,
+          "unite": "Litre"
+        }
+      ],
+      "instructions": "qsd\t",
+      "tempsPreparation": 12,
+      "tempsCuisson": 12,
+      "niveauDifficulte": "Intermédiaire"
+    }
+  ]
 }

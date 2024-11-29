@@ -18,6 +18,7 @@ public class Main extends Application {
         GestionnaireVue gestionnaireVue = new GestionnaireVueImpl(stage);
         FacadeGestionRecettes facadeGestionRecettes = FacadeGestionRecettesImpl.getInstance();
         Controleur controleur = new Controleur(gestionnaireVue, facadeGestionRecettes);
+        controleur.initRecetteId();
         controleur.run();
     }
 

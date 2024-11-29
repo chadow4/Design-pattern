@@ -76,7 +76,7 @@ public class FacadeGestionRecettesImpl implements FacadeGestionRecettes {
     @Override
     public void ajouterRecette(Recette recette) throws RecetteDejaExistanteException, SauvegardeException {
         for (Recette r : recettes) {
-            if (r.getNom().equalsIgnoreCase(recette.getNom())) {
+            if (r.getId() == recette.getId()) {
                 throw new RecetteDejaExistanteException("La recette existe déjà.");
             }
         }
@@ -86,14 +86,20 @@ public class FacadeGestionRecettesImpl implements FacadeGestionRecettes {
 
     @Override
     public void modifierRecette(Recette recette) throws RecetteIntrouvableException, SauvegardeException {
+
         boolean found = false;
         for (int i = 0; i < recettes.size(); i++) {
-            if (recettes.get(i).getNom().equalsIgnoreCase(recette.getNom())) {
+            System.out.println(" ID : "+recettes.get(i).getId() + " "+ recette.getId());
+            if (recettes.get(i).getId() == recette.getId()) {
                 recettes.set(i, recette);
+
+                System.out.println(recettes.get(i).getNom()+" "+recettes.get(i).getCategorie());
                 found = true;
                 break;
             }
         }
+
+
         if (!found) {
             throw new RecetteIntrouvableException("Recette introuvable.");
         }
@@ -170,6 +176,19 @@ public class FacadeGestionRecettesImpl implements FacadeGestionRecettes {
         }
         return ingredientsManquants;
     }
+
+    @Override
+    public int getMaxId() {
+        int max_id = 0;
+        for (Recette recette : recettes) {
+            if (recette.getId() > max_id) {
+                max_id = recette.getId();
+            }
+        }
+        return max_id;
+    }
+
+
 
     @Override
     public void sauvegarderDonnees() throws SauvegardeException {

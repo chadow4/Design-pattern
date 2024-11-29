@@ -130,8 +130,20 @@ public class RecetteDialog extends Dialog<Recette> {
                         alert.showAndWait();
                         return null;
                     }
+                    if(recette != null) {
+                        recette.setNom(nomRecette);
+                        recette.setCategorie(categorie);
+                        recette.setInstructions(instructions);
+                        recette.setTempsPreparation(tempsPreparation);
+                        recette.setTempsCuisson(tempsCuisson);
+                        recette.setNiveauDifficulte(niveauDifficulte);
+                        return recette;
+                    }else{
+                        return new Recette(nomRecette, categorie, ingredientsRecette, instructions, tempsPreparation, tempsCuisson, niveauDifficulte);
+                    }
 
-                    return new Recette(nomRecette, categorie, ingredientsRecette, instructions, tempsPreparation, tempsCuisson, niveauDifficulte);
+
+
                 } catch (NumberFormatException e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR, "Les temps de préparation et de cuisson doivent être des nombres entiers.", ButtonType.OK);
                     alert.showAndWait();

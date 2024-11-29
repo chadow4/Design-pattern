@@ -77,6 +77,8 @@ public class Controleur implements LanceurOrdre {
     public void ajouterRecette(String nom, String categorie, List<Ingredient> ingredients, String instructions,
                                int tempsPreparation, int tempsCuisson, String niveauDifficulte) {
         try {
+
+
             Recette recette = new Recette(nom, categorie, ingredients, instructions,
                     tempsPreparation, tempsCuisson, niveauDifficulte);
             facadeGestionRecettes.ajouterRecette(recette);
@@ -88,6 +90,7 @@ public class Controleur implements LanceurOrdre {
 
     public void modifierRecette(Recette recette) {
         try {
+
             facadeGestionRecettes.modifierRecette(recette);
             fireOrdre(TypeOrdre.RECETTE_MODIFIEE);
         } catch (RecetteIntrouvableException | SauvegardeException e) {
@@ -124,9 +127,19 @@ public class Controleur implements LanceurOrdre {
         return facadeGestionRecettes.filtrerRecettesParCategorie(categorie);
     }
 
+    public void initRecetteId() {
+        Recette r = new Recette();
+        r.setMaxId(facadeGestionRecettes.getMaxId());
+        System.out.println("INIT : "+ r.getMaxId());
+    }
+
+
+
     public List<Ingredient> getIngredientsManquants(Recette recette) {
         return facadeGestionRecettes.getIngredientsManquants(recette);
     }
+
+
 
     public Recette getRecetteParNom(String nom) {
         for (Recette recette : facadeGestionRecettes.getRecettes()) {

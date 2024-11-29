@@ -11,6 +11,7 @@ public interface FacadeGestionRecettes {
 
     void supprimerIngredient(String nom) throws IngredientIntrouvableException, SauvegardeException;
 
+
     List<Ingredient> getInventaire();
 
     void ajouterRecette(Recette recette) throws RecetteDejaExistanteException, SauvegardeException;
@@ -29,7 +30,10 @@ public interface FacadeGestionRecettes {
 
     List<Ingredient> getIngredientsManquants(Recette recette);
 
+    int getMaxId();
+
     void sauvegarderDonnees() throws SauvegardeException;
 
     void chargerDonnees() throws ChargementException;
+
 }

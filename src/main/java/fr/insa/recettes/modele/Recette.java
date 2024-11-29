@@ -3,6 +3,10 @@ package fr.insa.recettes.modele;
 import java.util.List;
 
 public class Recette {
+
+    private static int maxId = 1;
+
+    private int id;
     private String nom;
     private String categorie;
     private List<Ingredient> ingredients;
@@ -17,6 +21,8 @@ public class Recette {
 
     public Recette(String nom, String categorie, List<Ingredient> ingredients, String instructions,
                    int tempsPreparation, int tempsCuisson, String niveauDifficulte) {
+
+        this.id = ++maxId;
         this.nom = nom;
         this.categorie = categorie;
         this.ingredients = ingredients;
@@ -27,6 +33,11 @@ public class Recette {
     }
 
     // Getters and Setters
+
+    public int getMaxId() { return maxId;}
+
+    public int getId() { return id;}
+
     public String getNom() {
         return nom;
     }
@@ -58,6 +69,8 @@ public class Recette {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    public void setMaxId(int newMaxId) { maxId = newMaxId;}
 
     public void setCategorie(String categorie) {
         this.categorie = categorie;
