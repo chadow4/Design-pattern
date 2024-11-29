@@ -76,7 +76,7 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
         return vue;
     }
 
-    private void initialiserScene(BorderPane root) {
+    public void initialiserScene(BorderPane root) {
         this.scene = new Scene(root);
         ingredientsObservableList = FXCollections.observableArrayList();
         ingredientsListView.setItems(ingredientsObservableList);

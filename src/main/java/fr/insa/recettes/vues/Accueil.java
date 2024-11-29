@@ -3,7 +3,6 @@ package fr.insa.recettes.vues;
 import fr.insa.recettes.controleur.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
@@ -18,15 +17,10 @@ public class Accueil implements VueInteractive {
     private Controleur controleur;
 
     public static Accueil creer(GestionnaireVue g) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Accueil.class.getResource("accueil.fxml"));
-        BorderPane root = loader.load();
-        Accueil vue = loader.getController();
-        g.ajouterVueInteractive(vue);
-        vue.initialiserScene(root);
-        return vue;
+        return VueFactory.creerVue("accueil.fxml", g);
     }
 
-    private void initialiserScene(BorderPane root) {
+    public void initialiserScene(BorderPane root) {
         this.scene = new Scene(root);
     }
 
@@ -52,5 +46,14 @@ public class Accueil implements VueInteractive {
     public void accederRecettes(ActionEvent event) {
         controleur.fireOrdre(TypeOrdre.SHOW_LISTE_RECETTES);
     }
-    
+
+    @Override
+    public void setAbonnement(LanceurOrdre g) {
+
+    }
+
+    @Override
+    public void traiter(TypeOrdre e) {
+
+    }
 }
