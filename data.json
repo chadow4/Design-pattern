@@ -46,7 +46,6 @@
     {
       "id": 6,
       "nom": "Oeuf sur le plat",
-      "categorie": "Dessert",
       "ingredients": [
         {
           "nom": "Oeuf",

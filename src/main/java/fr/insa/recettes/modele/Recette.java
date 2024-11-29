@@ -1,5 +1,6 @@
 package fr.insa.recettes.modele;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,7 @@ public class Recette {
 
     public Recette() {
         // Default constructor for JSON deserialization
+        this.ingredients = new ArrayList<>();
     }
 
     public Recette(String nom, String categorie, List<Ingredient> ingredients, String instructions,
