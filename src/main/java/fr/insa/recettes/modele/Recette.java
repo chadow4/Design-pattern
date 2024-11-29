@@ -1,6 +1,7 @@
 package fr.insa.recettes.modele;
 
 import java.util.List;
+import java.util.Map;
 
 public class Recette {
 
@@ -14,6 +15,11 @@ public class Recette {
     private int tempsPreparation;
     private int tempsCuisson;
     private String niveauDifficulte;
+    private boolean isVegetarien;
+    private boolean isSansGluten;
+    private boolean isBio;
+    private boolean isPasCher;
+
 
     public Recette() {
         // Default constructor for JSON deserialization
@@ -30,6 +36,10 @@ public class Recette {
         this.tempsPreparation = tempsPreparation;
         this.tempsCuisson = tempsCuisson;
         this.niveauDifficulte = niveauDifficulte;
+        this.isVegetarien = isVegetarien;
+        this.isSansGluten = isSansGluten;
+        this.isBio = isBio;
+        this.isPasCher = isPasCher;
     }
 
     // Getters and Setters
@@ -66,6 +76,14 @@ public class Recette {
         return niveauDifficulte;
     }
 
+    public boolean getIsVegetarien() { return isVegetarien; }
+
+    public boolean getIsSansGluten() { return isSansGluten; }
+
+    public boolean getIsBio() { return isBio; }
+
+    public boolean getIsPasCher() { return isPasCher; }
+
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -95,6 +113,14 @@ public class Recette {
     public void setNiveauDifficulte(String niveauDifficulte) {
         this.niveauDifficulte = niveauDifficulte;
     }
+
+    public void setIsVegetarien(boolean isVegetarien) { this.isVegetarien = isVegetarien; }
+
+    public void setIsSansGluten(boolean isSansGluten) { this.isSansGluten = isSansGluten; }
+
+    public void setIsBio(boolean isBio) { this.isBio = isBio; }
+
+    public void setIsPasCher(boolean isPasCher) { this.isPasCher = isPasCher; }
 
     @Override
     public String toString() {

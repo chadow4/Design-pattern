@@ -20,6 +20,11 @@ public class RecetteDialog extends Dialog<Recette> {
     private TextField tempsPreparationField;
     private TextField tempsCuissonField;
     private ComboBox<String> niveauDifficulteCombo;
+    private CheckBox vegetarienCheck;
+    private CheckBox sansGlutenCheck;
+    private CheckBox bioCheck;
+    private CheckBox epiceCheck;
+
 
     private ComboBox<Ingredient> ingredientComboBox;
     private TextField ingredientQuantiteField;
@@ -62,6 +67,16 @@ public class RecetteDialog extends Dialog<Recette> {
         niveauDifficulteCombo = new ComboBox<>();
         niveauDifficulteCombo.setItems(FXCollections.observableArrayList("Facile", "Intermédiaire", "Difficile"));
 
+        vegetarienCheck = new CheckBox("Végétarien");
+        sansGlutenCheck = new CheckBox("Sans gluten");
+        bioCheck = new CheckBox("Ingrédients bio");
+        epiceCheck = new CheckBox("Épicé");
+
+        grid.add(vegetarienCheck, 0, 9);
+        grid.add(sansGlutenCheck, 1, 9);
+        grid.add(bioCheck, 0, 10);
+        grid.add(epiceCheck, 1, 10);
+
         // Gestion des ingrédients
         ingredientComboBox = new ComboBox<>();
         ingredientComboBox.setItems(FXCollections.observableArrayList(inventaire));
@@ -95,6 +110,10 @@ public class RecetteDialog extends Dialog<Recette> {
         grid.add(tempsCuissonField, 1, 4);
         grid.add(new Label("Niveau de difficulté:"), 0, 5);
         grid.add(niveauDifficulteCombo, 1, 5);
+        grid.add(vegetarienCheck, 0, 9);
+        grid.add(sansGlutenCheck, 1, 9);
+        grid.add(bioCheck, 0, 10);
+        grid.add(epiceCheck, 1, 10);
         grid.add(new Label("Ingrédients:"), 0, 6);
         grid.add(ingredientHBox, 1, 6);
         grid.add(ingredientsListView, 1, 7);
@@ -108,6 +127,10 @@ public class RecetteDialog extends Dialog<Recette> {
             tempsCuissonField.setText(String.valueOf(recette.getTempsCuisson()));
             niveauDifficulteCombo.setValue(recette.getNiveauDifficulte());
             ingredientsRecette = new ArrayList<>(recette.getIngredients());
+            vegetarienCheck.setSelected(recette.getIsVegetarien());
+            sansGlutenCheck.setSelected(recette.getIsSansGluten());
+            bioCheck.setSelected(recette.getIsBio());
+            epiceCheck.setSelected(recette.getIsPasCher());
             for (Ingredient ingredient : ingredientsRecette) {
                 ingredientsObservableList.add(ingredient.getNom() + " - " + ingredient.getQuantite() + " " + ingredient.getUnite());
             }
@@ -124,7 +147,12 @@ public class RecetteDialog extends Dialog<Recette> {
                     int tempsPreparation = Integer.parseInt(tempsPreparationField.getText());
                     int tempsCuisson = Integer.parseInt(tempsCuissonField.getText());
                     String niveauDifficulte = niveauDifficulteCombo.getValue();
-
+                    
+                    boolean isVegetarien = vegetarienCheck.isSelected();
+                    boolean isSansGluten = sansGlutenCheck.isSelected();
+                    boolean isBio = bioCheck.isSelected();
+                    boolean isEpice = epiceCheck.isSelected();
+                    
                     if (nomRecette.isEmpty() || categorie.isEmpty() || instructions.isEmpty() || niveauDifficulte == null || ingredientsRecette.isEmpty()) {
                         Alert alert = new Alert(Alert.AlertType.ERROR, "Veuillez remplir tous les champs et ajouter au moins un ingrédient.", ButtonType.OK);
                         alert.showAndWait();
@@ -144,6 +172,7 @@ public class RecetteDialog extends Dialog<Recette> {
 
 
 
+
                 } catch (NumberFormatException e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR, "Les temps de préparation et de cuisson doivent être des nombres entiers.", ButtonType.OK);
                     alert.showAndWait();
@@ -151,7 +180,7 @@ public class RecetteDialog extends Dialog<Recette> {
                 }
             }
             return null;
-        });
+        };
     }
 
     private void ajouterIngredient() {

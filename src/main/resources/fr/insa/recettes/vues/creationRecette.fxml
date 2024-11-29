@@ -11,6 +11,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.HBox?>
 
+<?import javafx.scene.control.CheckBox?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.insa.recettes.vues.CreationRecette">
     <center>
         <VBox spacing="10" alignment="CENTER">
@@ -34,6 +35,13 @@
                 <Label text="Niveau de difficulté:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
                 <ComboBox fx:id="niveauDifficulteCombo" GridPane.rowIndex="5" GridPane.columnIndex="1" />
             </GridPane>
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="Options supplémentaires:" />
+                <CheckBox fx:id="optionVegetarienCheck" text="Végétarien" />
+                <CheckBox fx:id="optionSansGlutenCheck" text="Sans gluten" />
+                <CheckBox fx:id="optionBioCheck" text="Bio" />
+                <CheckBox fx:id="optionPasCherCheck" text="Pas Cher" />
+            </VBox>
 
             <!-- Ingredient Management -->
             <Label text="Ingrédients:" />

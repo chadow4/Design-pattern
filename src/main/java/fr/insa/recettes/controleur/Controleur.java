@@ -75,12 +75,14 @@ public class Controleur implements LanceurOrdre {
     }
 
     public void ajouterRecette(String nom, String categorie, List<Ingredient> ingredients, String instructions,
-                               int tempsPreparation, int tempsCuisson, String niveauDifficulte) {
+                               int tempsPreparation, int tempsCuisson, String niveauDifficulte,
+                               boolean isVegetarien, boolean isSansGluten, boolean isBio, boolean isPasCher) {
         try {
 
 
             Recette recette = new Recette(nom, categorie, ingredients, instructions,
-                    tempsPreparation, tempsCuisson, niveauDifficulte);
+                    tempsPreparation, tempsCuisson, niveauDifficulte,
+                    isVegetarien, isSansGluten, isBio, isPasCher);
             facadeGestionRecettes.ajouterRecette(recette);
             fireOrdre(TypeOrdre.RECETTE_AJOUTEE);
         } catch (RecetteDejaExistanteException | SauvegardeException e) {

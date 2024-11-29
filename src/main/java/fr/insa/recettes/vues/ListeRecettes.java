@@ -125,6 +125,14 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
             StringBuilder details = new StringBuilder();
             details.append("Nom: ").append(recette.getNom()).append("\n");
             details.append("Catégorie: ").append(recette.getCategorie()).append("\n");
+            if(recette.getIsVegetarien() || recette.getIsSansGluten() || recette.getIsBio() || recette.getIsPasCher()){
+                details.append("Options supplémentaires :\n ");
+                if (recette.getIsVegetarien()) {details.append("- Vegetarien\n");
+                if (recette.getIsSansGluten()) { details.append("- Sans gluten\n");}
+                if (recette.getIsBio()) {details.append("- Bio\n");}
+                if (recette.getIsPasCher()) {details.append("- Pas cher\n");}
+                }
+            }
             details.append("Temps de préparation: ").append(recette.getTempsPreparation()).append(" min\n");
             details.append("Temps de cuisson: ").append(recette.getTempsCuisson()).append(" min\n");
             details.append("Niveau de difficulté: ").append(recette.getNiveauDifficulte()).append("\n");
@@ -194,7 +202,8 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
         dialog.setTitle("Ajouter une recette");
         dialog.showAndWait().ifPresent(recette -> {
             controleur.ajouterRecette(recette.getNom(), recette.getCategorie(), recette.getIngredients(), recette.getInstructions(),
-                    recette.getTempsPreparation(), recette.getTempsCuisson(), recette.getNiveauDifficulte());
+                    recette.getTempsPreparation(), recette.getTempsCuisson(), recette.getNiveauDifficulte(),
+                    recette.getIsVegetarien(), recette.getIsSansGluten(), recette.getIsBio(), recette.getIsPasCher());
         });
     }
 

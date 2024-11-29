@@ -39,6 +39,18 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
     private ComboBox<String> niveauDifficulteCombo;
 
     @FXML
+    private CheckBox optionVegetarienCheck;
+
+    @FXML
+    private CheckBox optionSansGlutenCheck;
+
+    @FXML
+    private CheckBox optionBioCheck;
+
+    @FXML
+    private CheckBox optionPasCherCheck;
+
+    @FXML
     private ComboBox<Ingredient> ingredientComboBox;
 
     @FXML
@@ -150,6 +162,10 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
         String tempsPreparationStr = tempsPreparationField.getText();
         String tempsCuissonStr = tempsCuissonField.getText();
         String niveauDifficulte = niveauDifficulteCombo.getValue();
+        boolean isVegetarien = optionVegetarienCheck.isSelected();
+        boolean isSansGluten = optionSansGlutenCheck.isSelected();
+        boolean isBio = optionBioCheck.isSelected();
+        boolean isPasCher = optionPasCherCheck.isSelected();
 
         if (nomRecette.isEmpty() || categorie.isEmpty() || instructions.isEmpty() ||
                 tempsPreparationStr.isEmpty() || tempsCuissonStr.isEmpty() || niveauDifficulte == null ||
@@ -163,7 +179,8 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
             int tempsCuisson = Integer.parseInt(tempsCuissonStr);
 
             controleur.ajouterRecette(nomRecette, categorie, ingredientsRecette, instructions,
-                    tempsPreparation, tempsCuisson, niveauDifficulte);
+                    tempsPreparation, tempsCuisson, niveauDifficulte,
+                    isVegetarien, isSansGluten, isBio, isPasCher);
         } catch (NumberFormatException e) {
             afficherErreur("Format incorrect", "Le temps de préparation et de cuisson doivent être des nombres entiers.");
         }
