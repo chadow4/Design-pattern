@@ -207,7 +207,7 @@ public class ListeRecettes implements VueInteractive, EcouteurOrdre {
         dialog.showAndWait().ifPresent(recette -> {
             controleur.ajouterRecette(recette.getNom(), recette.getCategorie(), recette.getIngredients(), recette.getInstructions(),
                     recette.getTempsPreparation(), recette.getTempsCuisson(), recette.getNiveauDifficulte(),
-                    recette.getIsVegetarien(), recette.getIsSansGluten(), recette.getIsBio(), recette.getIsPasCher());
+                    recette.getIsVegetarien(), recette.getIsSansGluten(), recette.getIsBio(), recette.getIsPasCher(), recette.getIsFavori());
         });
     }
 

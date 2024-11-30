@@ -83,6 +83,10 @@ public class FacadeGestionRecettesImpl implements FacadeGestionRecettes {
             case "Option":
                 this.setRechercheStrategy(new RechercheParOptionStrategy());
                 break;
+
+            case "Favori":
+                this.setRechercheStrategy(new RechercheParFavoriStrategy());
+                break;
             default:
                 break;
         }

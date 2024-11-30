@@ -29,7 +29,7 @@ public class Recette {
     }
 
     public Recette(String nom, String categorie, List<Ingredient> ingredients, String instructions,
-                   int tempsPreparation, int tempsCuisson, String niveauDifficulte,boolean isVegetarien, boolean isSansGluten, boolean isBio, boolean isPasCher) {
+                   int tempsPreparation, int tempsCuisson, String niveauDifficulte,boolean isVegetarien, boolean isSansGluten, boolean isBio, boolean isPasCher, boolean isFavori) {
 
         this.id = ++maxId;
         this.nom = nom;
@@ -43,6 +43,7 @@ public class Recette {
         this.isSansGluten = isSansGluten;
         this.isBio = isBio;
         this.isPasCher = isPasCher;
+        this.isFavori = isFavori;
     }
 
     // Getters and Setters

@@ -173,7 +173,9 @@ public class RecetteDialog extends Dialog<Recette> {
                             .setIsVegetarien(isVegetarien)
                             .setIsSansGluten(isSansGluten)
                             .setIsBio(isBio)
-                            .setIsPasCher(isEpice);
+                            .setIsPasCher(isPasCher)
+                            .setIsFavori(isFavori);
+
                     return recetteBuilder.build();
                     
                 } catch (NumberFormatException e) {

@@ -51,6 +51,9 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
     private CheckBox optionPasCherCheck;
 
     @FXML
+    private CheckBox optionIsFavoriCheck;
+
+    @FXML
     private ComboBox<Ingredient> ingredientComboBox;
 
     @FXML
@@ -161,6 +164,7 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
         boolean isSansGluten = optionSansGlutenCheck.isSelected();
         boolean isBio = optionBioCheck.isSelected();
         boolean isPasCher = optionPasCherCheck.isSelected();
+        boolean isFavori = optionIsFavoriCheck.isSelected();
 
         if (nomRecette.isEmpty() || categorie == null || categorie.isEmpty() || instructions.isEmpty() ||
                 tempsPreparationStr.isEmpty() || tempsCuissonStr.isEmpty() || niveauDifficulte == null ||
@@ -175,7 +179,7 @@ public class CreationRecette implements VueInteractive, EcouteurOrdre {
 
             controleur.ajouterRecette(nomRecette, categorie, ingredientsRecette, instructions,
                     tempsPreparation, tempsCuisson, niveauDifficulte,
-                    isVegetarien, isSansGluten, isBio, isPasCher);
+                    isVegetarien, isSansGluten, isBio, isPasCher, isFavori);
         } catch (NumberFormatException e) {
             afficherErreur("Format incorrect", "Le temps de préparation et de cuisson doivent être des nombres entiers.");
         }

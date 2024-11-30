@@ -5,5 +5,5 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public interface RechercheStrategy {
-    public List<Recette> recherche(List<Recette> recettes, String str);
+    List<Recette> recherche(List<Recette> recettes, String str);
 }

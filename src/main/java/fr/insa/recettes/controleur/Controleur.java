@@ -76,13 +76,13 @@ public class Controleur implements LanceurOrdre {
 
     public void ajouterRecette(String nom, String categorie, List<Ingredient> ingredients, String instructions,
                                int tempsPreparation, int tempsCuisson, String niveauDifficulte,
-                               boolean isVegetarien, boolean isSansGluten, boolean isBio, boolean isPasCher) {
+                               boolean isVegetarien, boolean isSansGluten, boolean isBio, boolean isPasCher, boolean isFavori) {
         try {
 
 
             Recette recette = new Recette(nom, categorie, ingredients, instructions,
                     tempsPreparation, tempsCuisson, niveauDifficulte,
-                    isVegetarien, isSansGluten, isBio, isPasCher);
+                    isVegetarien, isSansGluten, isBio, isPasCher, isFavori);
             facadeGestionRecettes.ajouterRecette(recette);
             fireOrdre(TypeOrdre.RECETTE_AJOUTEE);
         } catch (RecetteDejaExistanteException | SauvegardeException e) {
@@ -134,7 +134,7 @@ public class Controleur implements LanceurOrdre {
     }
 
     public List<Recette> filtrerRecettesFavorites() {
-        return facadeGestionRecettes.filtrerRecettesFavorites();
+        return facadeGestionRecettes.rechercherRecettes("Favori", "");
     }
 
     public void initRecetteId() {
